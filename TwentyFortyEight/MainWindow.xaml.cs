@@ -28,7 +28,7 @@ namespace TwentyFortyEight {
         }
 
         private void print() {
-            Debug.Print(this.board.FormattedBoardString() + "\n\n");
+            //Debug.Print(this.board.FormattedBoardString() + "\n\n");
             this.root.Children.Clear();
             var vals = this.board.GetAllValues();
             for (int i = 0; i < vals.Count(); i++)
@@ -67,7 +67,7 @@ namespace TwentyFortyEight {
             }
 
             if (this.board.GameOver()) {
-                this.Background = Brushes.Green;
+                this.Background = Brushes.Black;
                 Debug.Print("GAME OVER!");
             }
         }

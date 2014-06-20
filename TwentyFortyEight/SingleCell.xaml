@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              DataContext="{Binding RelativeSource={RelativeSource Self}}"
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="{Binding CellBackground}">
-        <TextBlock Text="{Binding Val}" FontSize="33" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="{Binding CellBackground}" Margin="10">
+        <TextBlock Text="{Binding Val}" FontSize="33" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{Binding CellForeground}"></TextBlock>
     </Grid>
 </UserControl>

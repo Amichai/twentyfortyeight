@@ -209,8 +209,43 @@ namespace TwentyFortyEight {
             this.setCell(idxToSet, val);
         }
 
+        private bool canMoveHorizontally() {
+            for (int idx = 0; idx < s * s; idx++) {
+                var x = idx % s;
+                var y = idx / s;
+                if (x == 3) {
+                    continue;
+                }
+                if (this[x][y] == this[x + 1][y]) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool canMoveVertically() {
+            for (int idx = 0; idx < s * s; idx++) {
+                var x = idx % s;
+                var y = idx / s;
+                if (y == 3) {
+                    continue;
+                }
+                if (this[x][y] == this[x][y + 1]) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         internal bool GameOver() {
-            return this.openIndices().Count() == 0;
+            if (this.openIndices().Count() != 0) {
+                return false;
+            }
+            if (canMoveHorizontally() || this.canMoveVertically()) {
+                return false;
+            }
+            return true;
+            ///For each pair of cells, asser that they are not the same
         }
     }
 }
