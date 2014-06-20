@@ -95,5 +95,30 @@ namespace Tester {
             targetOutput = "0,0,2,4,0,0,0,0,0,0,0,0,0,0,0,64";
             Assert.AreEqual(targetOutput, stateString);
         }
+
+        [TestMethod]
+        public void TestUp() {
+            var inputString = "0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0";
+            var state = BoardState.Load(inputString);
+            state.Up();
+            var stateString = state.GetStateString();
+            var targetOutput = "0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0";
+            Assert.AreEqual(targetOutput, stateString);
+
+            inputString = "0,0,0,0, 0,2,2,0,0,0,0,0,0,0,0,0";
+            state = BoardState.Load(inputString);
+            state.Up();
+            stateString = state.GetStateString();
+            targetOutput = "0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0";
+            Assert.AreEqual(targetOutput, stateString);
+
+            inputString = "2,2,2,0,2,2,2,0,0,0,0,0,0,0,0,0";
+            state = BoardState.Load(inputString);
+            state.Up();
+            stateString = state.GetStateString();
+            targetOutput = "4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0";
+            Assert.AreEqual(targetOutput, stateString);
+
+        }
     }
 }
